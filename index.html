@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConnyAI</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #ede8e1;
+    }
+ 
+    /* ── Section 1: Hero ── */
+ 
+    section.hero {
+      background: #ede8e1;
+      min-height: 520px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 2rem;
+      padding: 80px 8%;
+    }
+ 
+    .hero__content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+ 
+    .hero__eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c26a47;
+    }
+ 
+    .hero__headline {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: #1a1a18;
+      max-width: 520px;
+    }
+ 
+    .hero__cta {
+      display: inline-block;
+      background: #c26a47;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 50px;
+      width: fit-content;
+      transition: background 0.2s;
+    }
+ 
+    .hero__cta:hover { background: #a8552e; }
+ 
+    .hero__body {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #3d3d38;
+      max-width: 500px;
+    }
+ 
+    .hero__visuals {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+ 
+    .hero__image-placeholder {
+      width: 100%;
+      max-width: 460px;
+      height: 380px;
+      background: #2d4a3e;
+      border-radius: 20px;
+    }
+ 
+    /* ── Section 2: About ── */
+ 
+    section.about {
+      background: #ede8e1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+      gap: 4rem;
+      padding: 80px 8%;
+    }
+ 
+    .about__content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+ 
+    .about__headline {
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #1a1a18;
+    }
+ 
+    .about__body {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #3d3d38;
+    }
+ 
+    .about__cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+ 
+    .card {
+      background: #ddd5cc;
+      border-radius: 16px;
+      padding: 20px 22px;
+      font-size: 14px;
+      line-height: 1.55;
+      color: #2e2e2b;
+      text-align: center;
+    }
+ 
+    .about__cards-bottom {
+      display: flex;
+      justify-content: center;
+    }
+ 
+    .card--single {
+      max-width: 260px;
+      width: 100%;
+    }
+ 
+    .about__icon {
+      width: 60px;
+      opacity: 0.75;
+    }
+ 
+    .about__closing {
+      font-size: clamp(18px, 2.5vw, 26px);
+      font-weight: 700;
+      line-height: 1.3;
+      color: #1a1a18;
+    }
+ 
+    .about__image-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 700px;
+      background: #2d4a3e;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+ 
+    .about__visual {
+      display: contents;
+    }
+ 
+    /* ── Section 3: Features ── */
+ 
+    section.features {
+      background: #ede8e1;
+      padding: 80px 8%;
+      text-align: center;
+    }
+ 
+    .features__headline {
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: #1a1a18;
+      margin-bottom: 1rem;
+    }
+ 
+    .features__headline span {
+      color: #c26a47;
+    }
+ 
+    .features__subtitle {
+      font-size: 16px;
+      color: #3d3d38;
+      margin-bottom: 3rem;
+    }
+ 
+    .features__row {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+ 
+    .feature {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      max-width: 280px;
+      flex: 1 1 200px;
+    }
+ 
+    .feature__image {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: #2d4a3e;
+      flex-shrink: 0;
+    }
+ 
+    .feature__title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a1a18;
+      line-height: 1.3;
+    }
+ 
+    .feature__body {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #3d3d38;
+    }
+
+
+        /* ── Section: Team ── */
+ 
+    section.team {
+      background: #ede8e1;
+      padding: 80px 15%;
+    }
+ 
+    .team__headline {
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 700;
+      color: #1a1a18;
+      margin-bottom: 1.5rem;
+    }
+ 
+    .team__body {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #3d3d38;
+    }
+
+    /* Nav bar */
+      .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #ede8e1;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+ 
+  .nav__logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a18;
+    text-decoration: none;
+  }
+ 
+  .nav__logo span {
+    color: #c26a47;
+  }
+ 
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+ 
+  .nav__links a {
+    font-size: 15px;
+    color: #3d3d38;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+ 
+  .nav__links a:hover {
+    color: #1a1a18;
+  }
+ 
+  .nav__cta {
+    background: #c26a47;
+    color: #fff !important;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: background 0.2s !important;
+  }
+ 
+  .nav__cta:hover {
+    background: #a8552e;
+    color: #fff !important;
+  }
+ 
+  .nav__toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
+  }
+ 
+  .nav__toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #1a1a18;
+    border-radius: 2px;
+    transition: 0.2s;
+  }
+ 
+  @media (max-width: 768px) {
+    .nav__toggle {
+      display: flex;
+    }
+ 
+    .nav__links {
+      display: none;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: #ede8e1;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.5rem 8%;
+      gap: 1.25rem;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+ 
+    .nav__links.open {
+      display: flex;
+    }
+  }
+ 
+    /* ── Responsive ── */
+ 
+    @media (max-width: 768px) {
+      section.hero {
+        grid-template-columns: 1fr;
+        padding: 60px 6%;
+        text-align: center;
+      }
+ 
+      .hero__headline,
+      .hero__body { max-width: 100%; }
+ 
+      .hero__cta { align-self: center; }
+ 
+      .hero__image-placeholder { height: 260px; }
+ 
+      section.about {
+        grid-template-columns: 1fr;
+        padding: 60px 6%;
+        gap: 2.5rem;
+      }
+ 
+      .about__visual {
+        display: block;
+        order: -1;
+      }
+ 
+      .about__image-placeholder { min-height: 320px; }
+    }
+ 
+    @media (max-width: 680px) {
+      .features__row {
+        flex-direction: column;
+        align-items: center;
+      }
+ 
+      .feature { max-width: 100%; }
+    }
+ 
+    /* ── Section 4: Stories ── */
+ 
+    section.stories {
+      background: #ede8e1;
+      padding: 80px 8%;
+    }
+ 
+    .stories__headline {
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #1a1a18;
+      margin-bottom: 2.5rem;
+    }
+ 
+    .stories__cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+ 
+    .stories__card {
+      background: #ddd5cc;
+      border-radius: 16px;
+      padding: 28px 26px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #2e2e2b;
+    }
+ 
+    @media (max-width: 900px) {
+      .stories__cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">Conny<span>AI</span></a>
+  
+    <button class="nav__toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  
+    <ul class="nav__links">
+      <li><a href="index.html#features">Features</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="waitlist.html" class="nav__cta">Join waitlist</a></li>
+    </ul>
+  </nav>
+
+  <!-- Section 1: Hero -->
+  <section class="hero">
+    <div class="hero__content">
+      <p class="hero__eyebrow">Support that goes with you</p>
+      <h1 class="hero__headline"> On some days, the next step just won’t come</h1>
+      <a href="#" class="hero__cta">Learn more</a>
+      <p class="hero__body">
+        ConnyAI knows what's next. You take one step at a time.<br>
+        In words you can read in a second.<br>
+        No lists. No choices. No overwhelm.
+      </p>
+    </div>
+    <div class="hero__visuals" aria-hidden="true">
+      <div class="hero__image-placeholder"></div>
+    </div>
+  </section>
+  
+  <!-- Section 2: About -->
+  <section class="about">
+    <div class="about__content">
+      <h2 class="stories__headline">Most days fall apart in similar places</h2>
+      <div class="stories__cards">
+        <div class="stories__card">There's a message you need to reply to. You've already read it. It would take a few minutes to respond. But you've been waiting for days.</div>
+        <div class="stories__card">You have twenty minutes to leave. You know it. You haven't moved. The phone, the keys, and the shoes are all there. You can see them, but you don't know where to start. So you stay at home.</div>
+        <div class="stories__card">Someone told you a specific time or name. By the time you need it, it's gone. You forgot it because there was nowhere to write it down and find it at the right moment.</div>
+      </div>
+      <h2 class="about__headline">Knowing does not always mean doing</h2>
+      <p class="about__body">Sometimes the next step is missing. Sometimes you know it, but can’t reach it. ConnyAI is the small thing that helps you get there.  It does not plan your day. It does not coach you. It does not judge. It simply tells you the next step and waits.</p>
+
+
+      <svg class="about__icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="30" y1="55" x2="30" y2="20" stroke="#5a7a4a" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="30" y1="30" x2="18" y2="15" stroke="#5a7a4a" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="30" y1="35" x2="42" y2="20" stroke="#5a7a4a" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="30" y1="25" x2="22" y2="10" stroke="#5a7a4a" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="18" cy="14" r="2" fill="#8aaa6a"/>
+        <circle cx="42" cy="19" r="2" fill="#8aaa6a"/>
+        <circle cx="22" cy="9" r="2" fill="#8aaa6a"/>
+        <circle cx="30" cy="19" r="2" fill="#8aaa6a"/>
+      </svg>
+      <p class="about__closing">Step-by-step daily support<br>Built for independence, not productivity</p>
+    </div>
+  <div class="about__visual" aria-hidden="true">
+    <img src="connygirl.avif" alt="" class="about__image-placeholder">
+  </div>
+  </section>
+
+  <!-- Section 3: Features -->
+  <section id="features" class="features">
+    <h2 class="features__headline">What Conny<span>AI</span> does</h2>
+    <br>
+    <div class="features__row">
+      <div class="feature">
+        <div class="feature__image"></div>
+        <h3 class="feature__title">Splits up your tasks into easy steps</h3>
+        <p class="feature__body">Turns "clean the kitchen" into a sequence you follow without thinking. One step. Then the next. </p>
+      </div>
+      <div class="feature">
+        <div class="feature__image"></div>
+        <h3 class="feature__title">Helps you to adjust when plans suddenly change</h3>
+        <p class="feature__body">If a meeting moves, Conny adjusts the rest of your day.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__image"></div>
+        <h3 class="feature__title">Helps you with time blindness</h3>
+        <p class="feature__body">When you can't tell if it's been five minutes or two hours, Conny keeps you oriented.</p>
+      </div>
+    </div>
+    <div class="features__row">
+      <div class="feature">
+        <div class="feature__image"></div>
+        <h3 class="feature__title">Provides a calm sensory experience</h3>
+        <p class="feature__body">Low-noise mode, on by default. The page stays calm even when the day is loud.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__image"></div>
+        <h3 class="feature__title">Keeps your trusted person updated</h3>
+        <p class="feature__body">An optional connection with a person you trust. They see only what you choose to share. </p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Section: Team / About Us -->
+  <section id="team" class="team">
+    <h2 class="team__headline">About us</h2>
+    <p class="team__body">For two years, we have been listening to neurodivergent people describe the moment the brain cannot supply the next step and the day breaks at that line. The tools that exist ask you to plan, prioritize, and decide. But when you cannot do those things, these tools stop working. ConnyAI fills that space. Every rule the product follows is there because someone described a specific moment where it would have helped.</p>
+  </section>
+
+</body>
+</html>
