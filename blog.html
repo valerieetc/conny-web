@@ -422,6 +422,95 @@
         grid-template-columns: 1fr;
       }
     }
+
+
+        section.blog {
+      padding: 80px 8%;
+    }
+ 
+    .post-card {
+      display: grid;
+      grid-template-columns: 450px 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+ 
+    .post-card:first-of-type {
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+ 
+    .post-card__image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 12px;
+      background: #2d4a3e;
+      display: block;
+    }
+ 
+    .post-card__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+ 
+    .post-card__meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 13px;
+      color: #3d3d38;
+    }
+ 
+    .post-card__avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #2d4a3e;
+      flex-shrink: 0;
+    }
+ 
+    .post-card__meta-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+ 
+    .post-card__author {
+      font-weight: 600;
+      color: #1a1a18;
+    }
+ 
+    .post-card__details {
+      color: #6b6b66;
+    }
+ 
+    .post-card__title {
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 700;
+      color: #1a1a18;
+      line-height: 1.25;
+      text-decoration: none;
+      display: block;
+    }
+ 
+    .post-card__title:hover {
+      color: #c26a47;
+    }
+ 
+    .post-card__excerpt {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #3d3d38;
+    }
+ 
+    @media (max-width: 680px) {
+      .post-card {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -444,7 +533,64 @@
     </ul>
   </nav>
 
+<section class="blog">
+ 
+  <!-- Copy from here to repeat for each post -->
+  <article class="post-card">
+    <img src="your-image.jpg" alt="" class="post-card__image">
+    <div class="post-card__content">
+      <div class="post-card__meta">
+        <img src="your-avatar.jpg" alt="" class="post-card__avatar">
+        <div class="post-card__meta-text">
+          <span class="post-card__author">Liene Dobele</span>
+          <span class="post-card__details">4 days ago · 5 min read</span>
+        </div>
+      </div>
+      <a href="blog/post-title.html" class="post-card__title">The other pattern</a>
+      <p class="post-card__excerpt">On the people around the user, the question parents don’t say out loud, and the kind of dependency that frees everyone. After many conversations with neurodivergent…</p>
+    </div>
+  </article>
+  <!-- End of repeatable block -->
+ 
+  <article class="post-card">
+    <img src="your-image.jpg" alt="" class="post-card__image">
+    <div class="post-card__content">
+      <div class="post-card__meta">
+        <img src="your-avatar.jpg" alt="" class="post-card__avatar">
+        <div class="post-card__meta-text">
+          <span class="post-card__author">Liene Dobele</span>
+          <span class="post-card__details">4 days ago · 5 min read</span>
+        </div>
+      </div>
+      <a href="blog/post-title.html" class="post-card__title">The same thing</a>
+      <p class="post-card__excerpt">Why watching the same film, reading the same book, eating the same meal, and wearing the same sweater is not a limitation. It is regulation. A relative of mine has…</p>
+    </div>
+  </article>
 
+
+
+
+  <article class="post-card">
+    <img src="your-image.jpg" alt="" class="post-card__image">
+    <div class="post-card__content">
+      <div class="post-card__meta">
+        <img src="your-avatar.jpg" alt="" class="post-card__avatar">
+        <div class="post-card__meta-text">
+          <span class="post-card__author">Liene Dobele</span>
+          <span class="post-card__details">4 days ago · 5 min read</span>
+        </div>
+      </div>
+      <a href="blog/post-title.html" class="post-card__title">The support layer</a>
+      <p class="post-card__excerpt">Why good days for neurodivergent people are never built by one thing. Over the past year, I've been talking with a lot of people - neurodivergent adults, parents of autistic…</p>
+    </div>
+  </article>
+
+
+
+
+
+
+</section>
 
 
   </body>
