@@ -506,3 +506,81 @@ section.stories {
     grid-template-columns: 1fr;
     }
 }
+
+
+    article.post {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+ 
+    .post__meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      font-size: 14px;
+      color: #3d3d38;
+    }
+ 
+    .post__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #2d4a3e;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+ 
+    .post__author {
+      font-weight: 600;
+      color: #1a1a18;
+    }
+ 
+    .post__details {
+      color: #6b6b66;
+    }
+ 
+    .post__title {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 2rem;
+    }
+ 
+    .post__image {
+      width: 100%;
+      border-radius: 16px;
+      background: #2d4a3e;
+      display: block;
+      margin-bottom: 2rem;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+ 
+    .post__body {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #2e2e2b;
+    }
+ 
+    .post__body p {
+      margin-bottom: 1.5rem;
+    }
+ 
+    .post__body p:last-child {
+      margin-bottom: 0;
+    }
+ 
+    .post__intro {
+      font-style: italic;
+      font-weight: 600;
+    }
+ 
+    .post__divider {
+      text-align: center;
+      color: #6b6b66;
+      font-size: 20px;
+      letter-spacing: 0.4em;
+      margin: 2.5rem 0;
+    }
