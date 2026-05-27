@@ -399,7 +399,8 @@ section.stories {
 
 .stories__cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
     gap: 16px;
 }
 
@@ -588,7 +589,6 @@ section.stories {
 
 .faq__h1 {
     text-align: center;
-    padding: 0.9rem 0.9rem;
 }
 
 .faq__item {
