@@ -584,3 +584,47 @@ section.stories {
       letter-spacing: 0.4em;
       margin: 2.5rem 0;
     }
+
+
+.faq__h1 {
+    text-align: center;
+    padding: 0.9rem 0.9rem;
+}
+
+.faq__item {
+  padding: 0.6rem 25%;
+}
+
+.faq__question {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1a18;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq__answer {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #3d3d38;
+  margin-top: 1rem;
+}
+
+.faq__question::after {
+  content: '↓';
+  font-size: 20px;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+details[open] .faq__question::after {
+  transform: rotate(180deg);
+}
