@@ -628,3 +628,23 @@ section.stories {
 details[open] .faq__question::after {
   transform: rotate(180deg);
 }
+
+
+.signup__page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 1rem 15%;
+  align-items: center;
+}
+
+
+
+
+
+#mc_embed_signup {
+    background:#fff false;
+    clear:left; 
+    font:14px Helvetica,Arial,sans-serif; 
+    width: 400px;
+}
